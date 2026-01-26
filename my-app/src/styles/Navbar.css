@@ -1,0 +1,222 @@
+/* ================= ROOT COLORS ================= */
+:root {
+  --primary: #003399;
+  --primary-light: #0055cc;
+  --accent: #00d1b2;
+  --accent-glow: rgba(0, 209, 178, 0.45);
+  --text: #0f172a;
+  --bg: #ffffff;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --glass: rgba(255, 255, 255, 0.75);
+  --shadow-soft: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-strong: 0 18px 45px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= NAVBAR ================= */
+.navbar-landingpage {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.85)
+  );
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+.navbar-landingpage:hover {
+  box-shadow: var(--shadow-soft);
+}
+
+.navbar-landingpage .container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ================= LOGO ================= */
+.navbar-landingpage .logo img {
+  height: 62px;
+  transition: transform 0.4s ease;
+}
+
+.navbar-landingpage .logo img:hover {
+  transform: scale(1.05);
+}
+
+/* ================= NAV LINKS ================= */
+.navbar-landingpage .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 38px;
+  transition: all 0.4s ease;
+}
+
+.navbar-landingpage .nav-links a {
+  position: relative;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animated underline */
+.navbar-landingpage .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--primary-light));
+  transform: translateX(-50%);
+  transition: width 0.35s ease;
+}
+
+.navbar-landingpage .nav-links a:hover {
+  color: var(--primary-light);
+  transform: translateY(-2px);
+}
+
+.navbar-landingpage .nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ================= CTA BUTTONS ================= */
+.navbar-landingpage .cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Primary Button */
+.navbar-landingpage .btn-primary {
+  background: linear-gradient(135deg, var(--accent), #00bfa0);
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 12px 30px var(--accent-glow);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.navbar-landingpage .btn-primary:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 20px 45px var(--accent-glow);
+}
+
+/* Phone Button */
+.navbar-landingpage .btn-phone {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--glass);
+  color: var(--primary);
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  transition: transform 0.35s ease, background 0.35s ease;
+}
+
+.navbar-landingpage .btn-phone:hover {
+  background: #eef2ff;
+  transform: translateY(-2px);
+}
+
+/* ================= HAMBURGER ================= */
+.navbar-landingpage .menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.navbar-landingpage .menu-toggle:hover {
+  transform: scale(1.05);
+}
+
+.navbar-landingpage .menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: all 0.35s ease;
+}
+
+/* ================= MOBILE MENU ================= */
+@media (max-width: 992px) {
+  .navbar-landingpage .nav-links {
+    position: absolute;
+    top: 92px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(
+      to bottom,
+      #ffffff,
+      #f8fafc
+    );
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    box-shadow: var(--shadow-strong);
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    overflow: hidden;
+    transition: all 0.45s ease;
+  }
+
+  .navbar-landingpage .nav-links.show {
+    max-height: 420px;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .navbar-landingpage .nav-links a {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    font-size: 17px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .navbar-landingpage .nav-links a::after {
+    display: none;
+  }
+
+  .navbar-landingpage .cta-buttons {
+    display: none;
+  }
+
+  .navbar-landingpage .menu-toggle {
+    display: flex;
+  }
+}
+
+/* ================= SMALL DEVICES ================= */
+@media (max-width: 480px) {
+  .navbar-landingpage .container {
+    height: 82px;
+  }
+
+  .navbar-landingpage .logo img {
+    height: 54px;
+  }
+}
