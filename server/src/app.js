@@ -10,10 +10,17 @@ import appointmentrouter from "./route/appointmentroute.js"
 const app = express();
 
  app.use(cors({
-    origin: "http://localhost:8000",
-    origin: "http://localhost:3000",
-   https://doctor-booking-appointment-6n0v.onrender.com/
+    origin: [
+    "http://localhost:3000",              
+    "http://localhost:8000",
+    " https://doctor-booking-appointment-6n0v.onrender.com"
+     ],
+  credentials: true
+  
  }))
+
+app.options("*", cors());
+
 
 
 
