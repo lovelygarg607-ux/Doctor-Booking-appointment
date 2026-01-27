@@ -20,7 +20,7 @@ const Dashboard = () => {
          const getprofile = async () => {
              try {
      
-                 const profileresponse = await axios.get(`/Hospital/doctor/getdoctor/${localStorage.getItem("loginid")}`)
+                 const profileresponse = await axios.get(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/doctor/getdoctor/${localStorage.getItem("loginid")}`)
      
                  if (profileresponse.data.status === "success") {
                      Dispatch(setProfileData(profileresponse.data.existingdoctor))
