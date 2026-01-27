@@ -20,7 +20,7 @@ const app = express();
   
  }))
 
-app.options("*", cors());
+
 
 
 
