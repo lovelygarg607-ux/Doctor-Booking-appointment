@@ -23,7 +23,7 @@ const Appoinmentlist = () => {
             setLoading(true);
             const doctorId = localStorage.getItem("doctorId");
             console.log("DoctorId from storage:", doctorId);
-          const query = `/Hospital/appointment/appointmentlist?doctorId=${doctorId}&page=${currentPage}&limit=${limit}`;
+          const query = `https://doctor-booking-appointment-6n0v.onrender.com/Hospital/appointment/appointmentlist?doctorId=${doctorId}&page=${currentPage}&limit=${limit}`;
             const res = await axios.get(query);
 
             if (res.data.status === "success") {
