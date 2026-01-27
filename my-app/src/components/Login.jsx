@@ -41,11 +41,7 @@ const Login = () => {
       const loginresponse = await axios.post(
         "https://doctor-booking-appointment-6n0v.onrender.com/Hospital/user/login",
         formvalue,
-       {
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded"
-    }
-  }
+ 
       );
 
       if (loginresponse.data.status === "success") {
