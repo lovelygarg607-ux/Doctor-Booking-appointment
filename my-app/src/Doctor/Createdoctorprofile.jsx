@@ -110,7 +110,7 @@ const Createdoctorprofile = () => {
       }
 
 
-      const profilereponse = await axios.post("/Hospital/doctor/adddoctor",
+      const profilereponse = await axios.post("https://doctor-booking-appointment-6n0v.onrender.com/Hospital/doctor/adddoctor",
         formdata
 
       )
