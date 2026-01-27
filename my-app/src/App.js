@@ -34,7 +34,7 @@ const  App=()=> {
     const getprofile = async () => {
         try {
 
-            const profileresponse = await axios.get(`/Hospital/doctor/getdoctor/${loginId}`)
+            const profileresponse = await axios.get(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/doctor/getdoctor/${loginId}`)
               
 
             if (profileresponse.data.status === "success") {
@@ -72,7 +72,7 @@ const  App=()=> {
   const getClinicProfile = async ()=>{
     try {
 
-      const clinicprofileresponse = await axios.get(`/Hospital/clinic/getclinic/${loginId}`)
+      const clinicprofileresponse = await axios.get(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/clinic/getclinic/${loginId}`)
          console.log("clinic response:", clinicprofileresponse.data);
          if(clinicprofileresponse.data.status==="success"){
           Dispatch(setClinicProfileData(clinicprofileresponse.data.existingclinic))
