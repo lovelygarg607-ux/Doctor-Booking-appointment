@@ -127,7 +127,7 @@ const Createpatientprofile = () => {
 
 
 
-            const profileresponse = await axios.post("/Hospital/patient/addpatient",
+            const profileresponse = await axios.post("https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/addpatient",
                 formdata
             )
             if (profileresponse.data.status === "success") {
