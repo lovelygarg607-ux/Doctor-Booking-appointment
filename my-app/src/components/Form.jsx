@@ -80,7 +80,7 @@ const Form = () => {
 
       }
 
-      const registerresponse = await axios.post("https://doctor-booking-appointment-6n0v.onrender.com/Hospital/user/register",,
+      const registerresponse = await axios.post("https://doctor-booking-appointment-6n0v.onrender.com/Hospital/user/register",
         formvalue,
         {
           headers: {
