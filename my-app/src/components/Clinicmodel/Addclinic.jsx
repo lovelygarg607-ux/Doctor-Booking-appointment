@@ -81,7 +81,7 @@ const Addclinic = () => {
             }
 
 
-            const clinicreponse = await axios.post("/Hospital/clinic/addclinic", formdata)
+            const clinicreponse = await axios.post("https://doctor-booking-appointment-6n0v.onrender.com/Hospital/clinic/addclinic", formdata)
             if (clinicreponse.data.status === "success") {
                 setloading(false)
                 Swal.fire({
