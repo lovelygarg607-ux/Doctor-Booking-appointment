@@ -33,7 +33,7 @@ const Cliniclist = () => {
 
       setLoading(true)
 
-      let query = `/Hospital/doctor/getcliniclist?page=${currentpage}&limit=${limit}`
+      let query = `https://doctor-booking-appointment-6n0v.onrender.com/Hospital/doctor/getcliniclist?page=${currentpage}&limit=${limit}`
       const clinicresponse = await axios.get(query)
       console.log("Full API Response:", clinicresponse.data);
 
