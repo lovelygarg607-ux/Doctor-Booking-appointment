@@ -11,11 +11,11 @@ const app = express();
 
  app.use(cors({
     origin: [
-    "http://localhost:3000",              
+    "http://localhost:3000",
     "http://localhost:8000",
-    " https://doctor-booking-appointment-6n0v.onrender.com",
-    " https://doctor-booking-appointment-roca.vercel.app"
-     ],
+    "https://doctor-booking-appointment-6n0v.onrender.com",
+    "https://doctor-booking-appointment-roca.vercel.app"
+  ],
   credentials: true
   
  }))
