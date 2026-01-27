@@ -56,7 +56,7 @@ const  App=()=> {
 
     const getPatientprofile = async () => {
     try {
-      const patientprofileresponse = await axios.get(`/Hospital/patient/getpatient/${loginId}`)
+      const patientprofileresponse = await axios.get(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/getpatient/${loginId}`)
       console.log("Patient response:", patientprofileresponse.data);
 
       if (patientprofileresponse.data.status === "success") {
