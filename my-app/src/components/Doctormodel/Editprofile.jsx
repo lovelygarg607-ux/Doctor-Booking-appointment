@@ -54,7 +54,7 @@ const Editprofile = () => {
     const formdata = new FormData()
     formdata.append("profileImage", image)
 
-    const updatedImage = await axios.patch(`/Hospital/doctor/updateprofiledoctor/${params.id}`, formdata)
+    const updatedImage = await axios.patch(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/doctor/updateprofiledoctor/${params.id}`, formdata)
 
     if (updatedImage.data.status === "success") {
       dispatch(setProfileData(updatedImage.data.updatedoctor))
