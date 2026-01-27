@@ -1,18 +1,24 @@
-/* ------------------ MAIN OUTER WRAPPER ------------------ */
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+/* ================= MAIN CONTAINER ================= */
 .login-main-container {
+  min-height: 100vh;
+  width: 100%;
+  background: #f5f7fb;
   display: flex;
   justify-content: center;
   align-items: center;
-  width:100vw;
-  
-  background: #f5f7fb;
   padding: 20px;
   animation: fadePage 0.6s ease-in-out;
-
-  margin-top: 50px;;
 }
 
-/* ------------------ CENTER CARD ------------------ */
+/* ================= CARD WRAPPER ================= */
 .login-card-wrapper {
   width: 100%;
   max-width: 900px;
@@ -22,12 +28,9 @@
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
   animation: cardSlideIn 0.7s ease forwards;
-  opacity: 0;
-  transform: translateY(30px);
-
 }
 
-/* ------------------ LEFT IMAGE SECTION ------------------ */
+/* ================= LEFT IMAGE SECTION ================= */
 .login-left-section {
   flex: 1;
   background: linear-gradient(135deg, #0245d6, #1576d8);
@@ -39,44 +42,47 @@
 
 .login-left-section img {
   width: 85%;
-  max-width: 450px;
+  max-width: 420px;
   border-radius: 25px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   animation: floatImg 3s ease-in-out infinite;
 }
 
-/* ------------------ RIGHT FORM SECTION ------------------ */
+/* ================= RIGHT FORM SECTION ================= */
 .login-right-section {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 40px;
-  animation: fadeIn 0.8s ease;
 }
 
 .login-card {
   width: 100%;
   max-width: 420px;
-  animation: formPop 0.8s ease;
 }
 
-.login-card h2,
-.subtitle,
-.input-group,
-.login-btn,
-.signup-text {
-  animation: fadeUp 0.7s ease;
+.login-card h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+  color: #1e293b;
 }
 
-/* ------------------ INPUTS ------------------ */
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+/* ================= INPUTS ================= */
 .input-group {
   margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
 }
 
 .input-group label {
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   color: #333;
 }
 
@@ -90,10 +96,11 @@
 }
 
 .input-group input:focus {
+  outline: none;
   border-color: #1e66ff;
 }
 
-/* Eye Icon */
+/* ================= PASSWORD ICON ================= */
 .password-group {
   position: relative;
 }
@@ -107,7 +114,7 @@
   cursor: pointer;
 }
 
-/* ------------------ BUTTON ------------------ */
+/* ================= BUTTON ================= */
 .login-btn {
   width: 100%;
   padding: 12px;
@@ -126,55 +133,33 @@
   opacity: 0.95;
 }
 
-/* ------------------ REGISTER LINK ------------------ */
+/* ================= BOTTOM LINK ================= */
 .signup-text {
   text-align: center;
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 15px;
 }
 
 .signup-text a {
   color: #1e66ff;
   font-weight: 600;
+  text-decoration: none;
 }
 
-
-/* ------------------ ANIMATIONS ------------------ */
-
+/* ================= ANIMATIONS ================= */
 @keyframes fadePage {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
 @keyframes cardSlideIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes formPop {
-  from {
-    transform: scale(0.95);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
   }
 }
 
@@ -184,33 +169,50 @@
   100% { transform: translateY(0px); }
 }
 
-/* ------------------ RESPONSIVE ------------------ */
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
 @media (max-width: 950px) {
   .login-card-wrapper {
     flex-direction: column;
-    max-width: 550px;
+    max-width: 600px;
+  }
+
+  .login-left-section {
+    padding: 25px;
+  }
+
+  .login-left-section img {
+    width: 70%;
+    max-width: 300px;
+  }
+
+  .login-right-section {
+    padding: 30px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .login-card-wrapper {
+    border-radius: 16px;
   }
 
   .login-left-section {
     padding: 20px;
   }
 
-  .login-card-wrapper img {
-    
-    display:none;
-  }
-
-
-  
-}
-
-@media (max-width: 600px) {
-  .login-right-section {
-    padding: 25px;
-  }
-
   .login-left-section img {
-    width: 85%;
+    width: 80%;
+    max-width: 260px;
+  }
+
+  .login-right-section {
+    padding: 22px 18px;
+  }
+
+  .login-card h2 {
+    font-size: 24px;
   }
 }
 
