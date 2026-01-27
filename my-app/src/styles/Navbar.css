@@ -201,14 +201,29 @@
     display: none;
   }
 
-  .navbar-landingpage .cta-buttons {
-    display: none;
-  }
+
 
   .navbar-landingpage .menu-toggle {
     display: flex;
   }
 }
+@media (max-width: 768px) {
+  .navbar-landingpage .cta-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .navbar-landingpage .btn-primary,
+  .navbar-landingpage .btn-phone {
+    padding: 9px 16px;
+    font-size: 13px;
+  }
+
+  .navbar-landingpage .btn-phone span {
+    display: none; /* sirf icon dikhana ho to */
+  }
+}
+
 
 /* ================= SMALL DEVICES ================= */
 @media (max-width: 480px) {
