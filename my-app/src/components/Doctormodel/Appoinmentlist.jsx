@@ -45,14 +45,14 @@ const Appoinmentlist = () => {
 
             if (status === "approved") {
                 response = await axios.patch(
-                    "/Hospital/appointment/approvedappointment",
+                    "https://doctor-booking-appointment-6n0v.onrender.com/Hospital/appointment/approvedappointment",
                     { appointmentId: item._id }
                 );
             }
 
             if (status === "cancelled") {
                 response = await axios.patch(
-                    "/Hospital/appointment/cancelappointment",
+                    "https://doctor-booking-appointment-6n0v.onrender.com/Hospital/appointment/cancelappointment",
                     {
                         PatientId: item.PatientId?._id,
                         DoctorId: item.DoctorId?._id,
@@ -65,7 +65,7 @@ const Appoinmentlist = () => {
 
             if (status === "completed") {
                 response = await axios.patch(
-                    "/Hospital/appointment/completeappointment",
+                    "https://doctor-booking-appointment-6n0v.onrender.com/Hospital/appointment/completeappointment",
                     {
                         PatientId: item.PatientId?._id,
                         DoctorId: item.DoctorId?._id,
