@@ -35,7 +35,7 @@ const Doctorslist = () => {
 
   const getDoctorlist = async () => {
     try {
-      let query = `/Hospital/patient/getdoctorlist?page=${currentPage}&limit=${limit}`
+      let query = `https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/getdoctorlist?page=${currentPage}&limit=${limit}`
       if (doctorname.length > 0) query += `&doctorname=${doctorname}`
       if (speciality.length > 0) query += `&speciality=${speciality}`
     
