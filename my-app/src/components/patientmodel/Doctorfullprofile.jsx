@@ -82,7 +82,7 @@ const Doctorfullprofile = () => {
             e.preventDefault()
 
 
-            const bookingappointmentresponse = await axios.post("/Hospital/appointment/bookappointment",
+            const bookingappointmentresponse = await axios.post("https://doctor-booking-appointment-6n0v.onrender.com/Hospital/appointment/bookappointment",
                 {
                     bookingDate: formvalue.bookingDate,
                     bookingTime: formvalue.bookingTime,
