@@ -56,7 +56,7 @@ const Clinicprofile = () => {
       e.preventDefault()
       try {
 
-        const updatedclinicresponse = await axios.patch(`/Hospital/clinic/updateclinic/${params.id}`,
+        const updatedclinicresponse = await axios.patch(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/clinic/updateclinic/${params.id}`,
           formvalue,
           {
             headers: { "Content-Type": "application/json" },
