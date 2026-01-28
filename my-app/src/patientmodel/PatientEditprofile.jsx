@@ -83,7 +83,7 @@ const PatientEditprofile = () => {
   const handleSubmit = async (e) => {
     try {
       e.preventDefault()
-      const updatedpatientresponse = await axios.patch(`/Hospital/patient/updatepatient/${params.id}`,
+      const updatedpatientresponse = await axios.patch(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/updatepatient/${params.id}`,
         formValue,
         {
           headers: {
