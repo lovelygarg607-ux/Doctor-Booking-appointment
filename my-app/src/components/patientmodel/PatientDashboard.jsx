@@ -19,7 +19,7 @@ const PatientDashboard = () => {
 
     const getPatientprofile = async () => {
         try {
-            const patientprofileresponse = await axios.get(`/Hospital/patient/getpatient/${localStorage.getItem("loginid")}`)
+            const patientprofileresponse = await axios.get(`https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/getpatient/${localStorage.getItem("loginid")}`)
             console.log("Patient response:", patientprofileresponse.data);
 
             if (patientprofileresponse.data.status === "success") {
