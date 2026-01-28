@@ -38,7 +38,7 @@ const Doctorlisting = () => {
     try {
       setLoading(true);
 
-      let query = `/Hospital/patient/getdoctorlist?page=${currentPage}&limit=${limit}`;
+      let query = `https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/getdoctorlist?page=${currentPage}&limit=${limit}`;
 
       if (status) query += `&status=${status}`;
 
