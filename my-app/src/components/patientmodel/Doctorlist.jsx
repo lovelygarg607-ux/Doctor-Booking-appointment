@@ -33,27 +33,29 @@ const Doctorslist = () => {
 
  
 
-  const getDoctorlist = async () => {
-    try {
-      let query = `https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/getdoctorlist?page=${currentPage}&limit=${limit}`
-      if (doctorname.length > 0) query += `&doctorname=${doctorname}`
-      if (speciality.length > 0) query += `&speciality=${speciality}`
-    
-      if (minExp) query += `&minimumexperience=${minExp}`
-      if (maxExp) query += `&minimumexperience=${maxExp}`
+const getDoctorlist = async () => {
+  try {
+    setLoading(true);
 
- const res = await axios.get(query);
+    let query = `https://doctor-booking-appointment-6n0v.onrender.com/Hospital/patient/getdoctorlist?page=${currentPage}&limit=${limit}`;
 
-      if (res.data.status === "success") {
-        setDoctors(res.data.doctors);
-        setTotalDoctors(res.data.totalrecords);
-      }
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setLoading(false);
+    if (doctorname.trim()) query += `&doctorname=${doctorname}`;
+    if (speciality) query += `&speciality=${speciality}`;
+    if (minExp) query += `&minimumexperience=${minExp}`;
+    if (maxExp) query += `&maximumexperience=${maxExp}`;
+
+    const res = await axios.get(query);
+
+    if (res.data.status === "success") {
+      setDoctors(res.data.doctors);
+      setTotalDoctors(res.data.totalrecords);
     }
-  };
+  } catch (err) {
+    console.error(err);
+  } finally {
+    setLoading(false);
+  }
+};
 
 
 
