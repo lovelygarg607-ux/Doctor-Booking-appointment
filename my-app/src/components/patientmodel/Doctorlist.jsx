@@ -59,9 +59,9 @@ const getDoctorlist = async () => {
 
 
 
-  useEffect(() => {
-    getDoctorlist();
-  }, [currentPage, speciality]);
+useEffect(() => {
+  getDoctorlist();
+}, [currentPage, speciality, doctorname, minExp, maxExp]);
 
 
 
