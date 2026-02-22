@@ -1245,12 +1245,7 @@
 
 @media (max-width: 992px) {
 
-    .sidebar {
-        left: -280px;
-        width: 260px;
-        z-index: 9999;
-    }
-
+  
     .sidebar.active {
         left: 0;
     }
