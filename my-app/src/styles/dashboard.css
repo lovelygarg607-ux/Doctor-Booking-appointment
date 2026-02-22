@@ -1249,11 +1249,19 @@
     .sidebar.active {
         left: 0;
     }
+    .sidebar {
+        width: 160px;
+    }
 
     .main-content {
+        margin-left: 160px;
+        width: calc(100% - 160px);
+    }
+
+    /* .main-content {
         margin-left: 0;
         width: 100%;
-    }
+    } */
 
     .mobile-menu-btn {
         display: block;
