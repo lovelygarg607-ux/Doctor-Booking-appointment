@@ -1071,16 +1071,7 @@
 ========================================== */
 
 @media (max-width: 1200px) {
-    .main-content {
-        margin-left: 260px;
-        width: calc(100% - 260px);
-    }
-
-    .sidebar {
-        width: 260px;
-    }
-}
-
+ 
 
 /* ==========================================
    TABLET VIEW
@@ -1089,26 +1080,14 @@
 @media (max-width: 992px) {
 
     /* Sidebar Hidden by Default */
-    .sidebar {
-        position: fixed;
-    
-        top: 0;
-        height: 100%;
-        width: 200px;
-        z-index: 9999;
-        transition: left 0.3s ease;
-    }
+   
 
     .sidebar.active {
         left: 0;
     }
 
     /* Main Content Full Width */
-    .main-content {
-        margin-left: 0;
-        width: 100%;
-    }
-
+ 
     /* Header Adjust */
     .main-header {
         padding: 1rem;
@@ -1237,10 +1216,7 @@
     transition: left 0.3s ease;
 }
 
-.main-content {
-    margin-left: 280px;
-    width: calc(100% - 280px);
-}
+
 /* ================= TABLET ================= */
 
 @media (max-width: 992px) {
@@ -1249,14 +1225,7 @@
     .sidebar.active {
         left: 0;
     }
-    .sidebar {
-        width: 160px;
-    }
-
-    .main-content {
-        margin-left: 160px;
-        width: calc(100% - 160px);
-    }
+  
 
     /* .main-content {
         margin-left: 0;
