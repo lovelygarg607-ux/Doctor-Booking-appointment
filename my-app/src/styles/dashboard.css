@@ -1254,6 +1254,17 @@
         grid-template-columns: 1fr;
     }
 
+ 
+  .sidebar {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+
     .dashboard-container {
         padding: 1rem;
     }
