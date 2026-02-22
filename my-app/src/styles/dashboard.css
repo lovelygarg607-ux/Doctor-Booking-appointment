@@ -1065,3 +1065,170 @@
            gap: 12px;
            margin-top: 32px;
        }
+
+/* ==========================================
+   GLOBAL FIX
+========================================== */
+
+@media (max-width: 1200px) {
+    .main-content {
+        margin-left: 260px;
+        width: calc(100% - 260px);
+    }
+
+    .sidebar {
+        width: 260px;
+    }
+}
+
+
+/* ==========================================
+   TABLET VIEW
+========================================== */
+
+@media (max-width: 992px) {
+
+    /* Sidebar Hidden by Default */
+    .sidebar {
+        position: fixed;
+        left: -300px;
+        top: 0;
+        height: 100%;
+        width: 260px;
+        z-index: 9999;
+        transition: left 0.3s ease;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    /* Main Content Full Width */
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Header Adjust */
+    .main-header {
+        padding: 1rem;
+    }
+
+    .search-bar input {
+        width: 180px;
+    }
+
+    /* Welcome Banner */
+    .welcome-banner {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .welcome-text h1 {
+        font-size: 1.6rem;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Profile Fix */
+    .profile-container {
+        width: 95%;
+    }
+
+    .profile-container .profile-info {
+        margin-left: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    .profile-container .avatar-wrapper {
+        position: relative;
+        top: -50px;
+        left: 20px;
+        width: 100px;
+        height: 100px;
+    }
+
+}
+
+
+/* ==========================================
+   MOBILE VIEW
+========================================== */
+
+@media (max-width: 768px) {
+
+    .search-bar input {
+        width: 140px;
+    }
+
+    .dashboard-container {
+        padding: 1rem;
+    }
+
+    /* Stats Single Column */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-value {
+        font-size: 2rem;
+    }
+
+    /* Tables Smaller Text */
+    .data-table th,
+    .data-table td {
+        font-size: 12px;
+        padding: 0.5rem;
+    }
+
+    /* Profile Section */
+    .profile-container .avatar-wrapper {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+    }
+
+    .profile-container .profile-tabs {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 20px;
+    }
+
+    .profile-container .profile-content {
+        padding: 20px;
+    }
+
+}
+
+
+/* ==========================================
+   SMALL MOBILE
+========================================== */
+
+@media (max-width: 480px) {
+
+    .search-bar {
+        display: none;
+    }
+
+    .header-profile-info {
+        display: none;
+    }
+
+    .welcome-text h1 {
+        font-size: 1.3rem;
+    }
+
+    .stat-card {
+        padding: 1rem;
+    }
+
+}
