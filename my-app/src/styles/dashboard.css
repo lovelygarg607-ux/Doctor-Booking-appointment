@@ -1232,3 +1232,80 @@
     }
 
 }
+
+/* ================= DESKTOP ================= */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100vh;
+    transition: left 0.3s ease;
+}
+
+.main-content {
+    margin-left: 280px;
+    width: calc(100% - 280px);
+}
+/* ================= TABLET ================= */
+
+@media (max-width: 992px) {
+
+    .sidebar {
+        left: -280px;
+        width: 260px;
+        z-index: 9999;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+        position: fixed;
+        top: 15px;
+        left: 15px;
+        font-size: 26px;
+        cursor: pointer;
+        color: #2e37a4;
+        z-index: 10000;
+        background: white;
+        padding: 6px 10px;
+        border-radius: 6px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-container {
+        padding: 1rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        font-size: 12px;
+        padding: 0.5rem;
+    }
+
+    .search-bar {
+        display: none;
+    }
+}
+
+.mobile-menu-btn {
+    display: none;
+}
