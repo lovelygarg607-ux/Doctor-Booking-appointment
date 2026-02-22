@@ -1091,10 +1091,10 @@
     /* Sidebar Hidden by Default */
     .sidebar {
         position: fixed;
-        left: -300px;
+    
         top: 0;
         height: 100%;
-        width: 260px;
+        width: 200px;
         z-index: 9999;
         transition: left 0.3s ease;
     }
