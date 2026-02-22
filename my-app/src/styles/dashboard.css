@@ -1215,10 +1215,7 @@
 
 @media (max-width: 480px) {
 
-    .search-bar {
-        display: none;
-    }
-
+  
     .welcome-text h1 {
         font-size: 1.3rem;
     }
@@ -1297,9 +1294,7 @@
         padding: 0.5rem;
     }
 
-    .search-bar {
-        display: none;
-    }
+  
 }
 
 .mobile-menu-btn {
