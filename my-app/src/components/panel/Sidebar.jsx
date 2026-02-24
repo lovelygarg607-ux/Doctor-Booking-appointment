@@ -26,19 +26,10 @@ const Sidebar = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
-  // Auto close sidebar on mobile after click
-  const closeSidebarMobile = () => {
-    if (window.innerWidth < 992) {
-      setIsOpen(false);
-    }
-  };
-
+ 
   return (
     <>
-      {/* Hamburger Button */}
-      <div className="mobile-menu-btn" onClick={toggleSidebar}>
-        ☰
-      </div>
+  
 
       <div className={isOpen ? "sidebar active" : "sidebar"}>
         {/* Header */}
