@@ -1259,12 +1259,12 @@
         opacity: 1;
     }
 
-  .sidebar.active {
-    left: 0;        
-  }
-
     .sidebar {
       left: -300px;   /* hide */
+  }
+
+  .sidebar.active {
+    left: 0;
   }
 
   .sidebar.open {
