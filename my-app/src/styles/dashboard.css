@@ -311,7 +311,7 @@
            background-color: #f8fafc;
        }
 
-       .main-sidebar .close-btn {
+       .sidebar .close-btn {
            display: none;
        }
 
@@ -1280,7 +1280,7 @@
       z-index: 10001;
   }
 
-  .main-sidebar .close-btn {
+  .sidebar .close-btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;

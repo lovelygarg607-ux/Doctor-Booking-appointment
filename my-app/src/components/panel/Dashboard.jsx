@@ -10,49 +10,55 @@ import { setProfileData } from '../../reducers/Reducers.js';
 
 
 const Dashboard = () => {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-   const Dispatch = useDispatch()
-     const DoctorprofileData = useSelector((state) => state.doctorprofile)
-     
-     console.log(DoctorprofileData)
+    const Dispatch = useDispatch()
+    const DoctorprofileData = useSelector((state) => state.doctorprofile)
 
-   
-         const getprofile = async () => {
-             try {
-     
-                 const profileresponse = await axios.get(`/Hospital/doctor/getdoctor/${localStorage.getItem("loginid")}`)
-     
-                 if (profileresponse.data.status === "success") {
-                     Dispatch(setProfileData(profileresponse.data.existingdoctor))
-                 }
-     
-                 else {
-                     console.log("Something went wrong")
-                 }
-     
-     
-     
-     
-             } catch (error) {
-     
-                 console.log("get doctor error", error)
-     
-     
-     
-     
-             }
-         }
+    console.log(DoctorprofileData)
 
-         
-    if (!DoctorprofileData) {
 
-        getprofile()
+    const getprofile = async () => {
+        try {
 
+            const profileresponse = await axios.get(`/Hospital/doctor/getdoctor/${localStorage.getItem("loginid")}`)
+
+            if (profileresponse.data.status === "success") {
+                Dispatch(setProfileData(profileresponse.data.existingdoctor))
+            }
+
+            else {
+                console.log("Something went wrong")
+            }
+
+
+
+
+        } catch (error) {
+
+            console.log("get doctor error", error)
+
+
+
+
+        }
     }
 
 
+    useEffect(() => {
+        if (!DoctorprofileData) {
 
-  
+            getprofile()
+
+        }
+
+
+    }, [])
+
+
+
+
+
 
 
 
@@ -97,55 +103,58 @@ const Dashboard = () => {
 
             <div className="main-dashboard">
 
-           
-           <Sidebar/>
 
-       
+                <Sidebar
+                    isOpen={isSidebarOpen}
+                    onClose={() => setIsSidebarOpen(false)}
+                />
 
-                <main class="main-content">
 
-                    <Header  />
 
-                    <div class="dashboard-container">
-                        <div class="welcome-banner">
-                            <div class="welcome-text">
-                             <h1>Good Morning,  </h1> <b>Admin </b> 
+                <main className="main-content">
+
+                    <Header onMenuClick={() => setIsSidebarOpen((prev) => !prev)} />
+
+                    <div className="dashboard-container">
+                        <div className="welcome-banner">
+                            <div className="welcome-text">
+                                <h1>Good Morning,  </h1> <b>Admin </b>
                                 <p>Here is your health dashboard overview for today.</p>
                             </div>
                             <img src="https://merakiui.com/images/components/illustration.svg" alt="Illustration"
-                                class="welcome-illustration" />
+                                className="welcome-illustration" />
                         </div>
 
-                        <div class="stats-grid">
+                        <div className="stats-grid">
                             {/* <!-- Stat Cards --> */}
-                            <div class="stat-card">
-                                <div class="stat-header">
-                                    <div class="stat-icon appointments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                            <div className="stat-card">
+                                <div className="stat-header">
+                                    <div className="stat-icon appointments"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                         fill="currentColor">
                                         <path fill-rule="evenodd"
                                             d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
                                             clip-rule="evenodd" />
                                     </svg></div>
-                                    <h3 class="stat-title">Appointments</h3>
+                                    <h3 className="stat-title">Appointments</h3>
                                 </div>
-                                <p class="stat-value">49</p>
-                                <div class="stat-comparison positive"><svg width="16" height="16" fill="currentColor"
+                                <p className="stat-value">49</p>
+                                <div className="stat-comparison positive"><svg width="16" height="16" fill="currentColor"
                                     viewBox="0 0 16 16">
                                     <path
                                         d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />
                                 </svg><span>40% vs last month</span></div>
                             </div>
-                            <div class="stat-card">
+                            <div className="stat-card">
                                 <div class="stat-header">
-                                    <div class="stat-icon patients"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
+                                    <div className="stat-icon patients"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                                         fill="currentColor">
                                         <path
                                             d="M9 6a3 3 0 11-6 0 3 3 0 016 0zm-2 5.5A2.5 2.5 0 015.5 9h-1a3.5 3.5 0 00-3.5 3.5v1a1 1 0 001 1h5.5a1 1 0 001-1v-1a2.5 2.5 0 01-2.5-2.5zM15 6a3 3 0 11-6 0 3 3 0 016 0zm-2 5.5A2.5 2.5 0 0113.5 9h-1a3.5 3.5 0 00-3.5 3.5v1a1 1 0 001 1h5.5a1 1 0 001-1v-1a2.5 2.5 0 01-2.5-2.5z" />
                                     </svg></div>
-                                    <h3 class="stat-title">Upcoming Patients</h3>
+                                    <h3 className="stat-title">Upcoming Patients</h3>
                                 </div>
-                                <p class="stat-value">23</p>
-                                <div class="stat-comparison positive"><svg width="16" height="16" fill="currentColor"
+                                <p className="stat-value">23</p>
+                                <div className="stat-comparison positive"><svg width="16" height="16" fill="currentColor"
                                     viewBox="0 0 16 16">
                                     <path
                                         d="M7.247 4.86l-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z" />

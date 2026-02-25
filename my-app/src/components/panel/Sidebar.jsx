@@ -3,9 +3,7 @@ import "./../../styles/dashboard.css";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
-const Sidebar = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
+const Sidebar = ({ isOpen, onClose }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const navigate = useNavigate();
@@ -22,37 +20,26 @@ const Sidebar = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
- 
   const closeSidebarMobile = () => {
     if (window.innerWidth <= 768) {
-      setIsOpen(false);
+      onClose();
     }
   };
 
   return (
     <>
       <div className={`sidebar ${isOpen ? "active" : ""}`}>
-
-        {/* Close button mobile ke liye */}
-        <button 
-          className="close-btn"
-          onClick={() => setIsOpen(false)}
-        >
-          ✖
+        <button className="close-btn" onClick={onClose}>
+          x
         </button>
 
-        {/* Header */}
         <div className="sidebar-header">
           <h1 className="sidebar-logo">AdminMD</h1>
         </div>
 
-        {/* Profile */}
         <div className="sidebar-profile">
           <img
-            src={
-              profileData?.profileImage ||
-              "https://i.pravatar.cc/150?u=admin"
-            }
+            src={profileData?.profileImage || "https://i.pravatar.cc/150?u=admin"}
             alt="Admin"
           />
           <h3>{profileData?.doctorname || "Dr. Admin"}</h3>
@@ -61,7 +48,6 @@ const Sidebar = () => {
           </p>
         </div>
 
-        {/* Menu */}
         <ul className="sidebar-menu">
           <li className={location.pathname === "/dashboard" ? "sidebar-menu-item active" : "sidebar-menu-item"}>
             <Link to="/dashboard" onClick={closeSidebarMobile}>
@@ -71,7 +57,7 @@ const Sidebar = () => {
 
           <li className="sidebar-menu-item">
             <div className="menu-link" onClick={toggleDropdown}>
-              Doctors ▾
+              Doctors
             </div>
 
             {dropdownOpen && (
@@ -107,7 +93,6 @@ const Sidebar = () => {
           </li>
         </ul>
 
-        {/* Logout */}
         <div className="sidebar-menu logout-link">
           <li className="sidebar-menu-item">
             <button
@@ -125,13 +110,7 @@ const Sidebar = () => {
         </div>
       </div>
 
-      {/* Overlay mobile ke liye */}
-      {isOpen && (
-        <div 
-          className="overlay"
-          onClick={() => setIsOpen(false)}
-        ></div>
-      )}
+      {isOpen && <div className="sidebar-backdrop" onClick={onClose}></div>}
     </>
   );
 };
