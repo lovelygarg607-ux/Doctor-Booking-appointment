@@ -1,11 +1,11 @@
-
 import React from 'react'
 import "./../../styles/dashboard.css"
 import { useSelector } from 'react-redux'
-
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
-   
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const profileData = useSelector((state) => state.doctorprofile)
     console.log(profileData)
@@ -14,7 +14,27 @@ const Header = () => {
         <header className="main-header">
 
             <div className="header-left">
-            
+                <nav className={`nav-links ${menuOpen ? "show" : ""}`}>
+                    <Link to={"/"} href="#home" onClick={() => setMenuOpen(false)}>Home</Link>
+                    <a href={"/about"} onClick={() => setMenuOpen(false)}>About Us</a>
+                    <a href={"/department"} onClick={() => setMenuOpen(false)}>Departments</a>
+                    <a href="#research" onClick={() => setMenuOpen(false)}>Doctors</a>
+                    <a href={"/blog"} onClick={() => setMenuOpen(false)}>Blog</a>
+                    <a href={"/contact"} onClick={() => setMenuOpen(false)}>Contact</a>
+                </nav>
+
+                <div
+                    className="menu-toggle"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+                    <span />
+                    <span />
+                    <span />
+                </div>
+
+
+
+
 
                 <div className="search-bar">
                     <svg
