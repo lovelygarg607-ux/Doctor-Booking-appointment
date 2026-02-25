@@ -1,15 +1,16 @@
+
 import React, { useState } from "react";
 import "./../../styles/dashboard.css";
 import { useSelector } from "react-redux";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
-
   const profileData = useSelector((state) => state.doctorprofile);
 
   const handleLogout = () => {
@@ -18,20 +19,29 @@ const Sidebar = () => {
     navigate("/");
   };
 
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-  };
-
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
  
+  const closeSidebarMobile = () => {
+    if (window.innerWidth <= 768) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
-  
+      <div className={`sidebar ${isOpen ? "active" : ""}`}>
 
-      <div className={isOpen ? "sidebar active" : "sidebar"}>
+        {/* Close button mobile ke liye */}
+        <button 
+          className="close-btn"
+          onClick={() => setIsOpen(false)}
+        >
+          ✖
+        </button>
+
         {/* Header */}
         <div className="sidebar-header">
           <h1 className="sidebar-logo">AdminMD</h1>
@@ -54,19 +64,12 @@ const Sidebar = () => {
 
         {/* Menu */}
         <ul className="sidebar-menu">
-          <li
-            className={
-              location.pathname === "/dashboard"
-                ? "sidebar-menu-item active"
-                : "sidebar-menu-item"
-            }
-          >
+          <li className={location.pathname === "/dashboard" ? "sidebar-menu-item active" : "sidebar-menu-item"}>
             <Link to="/dashboard" onClick={closeSidebarMobile}>
               Admin Dashboard
             </Link>
           </li>
 
-          {/* Dropdown */}
           <li className="sidebar-menu-item">
             <div className="menu-link" onClick={toggleDropdown}>
               Doctors ▾
@@ -86,25 +89,13 @@ const Sidebar = () => {
             )}
           </li>
 
-          <li
-            className={
-              location.pathname === "/cliniclist"
-                ? "sidebar-menu-item active"
-                : "sidebar-menu-item"
-            }
-          >
+          <li className={location.pathname === "/cliniclist" ? "sidebar-menu-item active" : "sidebar-menu-item"}>
             <Link to="/cliniclist" onClick={closeSidebarMobile}>
               Clinics
             </Link>
           </li>
 
-          <li
-            className={
-              location.pathname === "/appointmentlist"
-                ? "sidebar-menu-item active"
-                : "sidebar-menu-item"
-            }
-          >
+          <li className={location.pathname === "/appointmentlist" ? "sidebar-menu-item active" : "sidebar-menu-item"}>
             <Link to="/appointmentlist" onClick={closeSidebarMobile}>
               Appointments
             </Link>
@@ -134,6 +125,14 @@ const Sidebar = () => {
           </li>
         </div>
       </div>
+
+      {/* Overlay mobile ke liye */}
+      {isOpen && (
+        <div 
+          className="overlay"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
     </>
   );
 };
