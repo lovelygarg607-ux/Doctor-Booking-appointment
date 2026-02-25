@@ -1266,7 +1266,8 @@
       pointer-events: none;
   }
 
-  .sidebar.active {
+  .sidebar.active,
+  .sidebar.open {
     transform: translateX(0);
     visibility: visible;
     pointer-events: auto;

@@ -5,22 +5,24 @@ import { Link, useNavigate } from "react-router-dom"
 import { setProfileData } from '../../reducers/Reducers.js'
 import user from "../../images/images/user.webp"
 
-const Sidebar = () => {
+const Sidebar = ({ isOpen = false, onClose }) => {
 
   const Dispatch=useDispatch()
   const Navigate=useNavigate()
 
-  const [isOpen, setIsOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
   const [active, setactive] = useState("")
 
-  const[sidebaropen,setSidebaropen]=useState(false)
   const[activedropdown,setactivedropdown]=useState("")
 
-
-  const togglesidebar = ()=>setSidebaropen(!sidebaropen)
-  
   const toggledropdown = () => {
-    setIsOpen(!isOpen)
+    setIsDropdownOpen(!isDropdownOpen)
+  }
+
+  const closeSidebar = () => {
+    if (typeof onClose === "function") {
+      onClose()
+    }
   }
 
 
@@ -46,15 +48,17 @@ const Sidebar = () => {
                 <i className="fa fa-bars" style={{ fontSize: '24px' }}></i>
             </button> */}
 
-              <div className="main-sidebar" > <div className={`sidebar ${sidebaropen ? "open" : ""}`}>
+              <div className="main-sidebar" >
+                {isOpen && <button type="button" className="sidebar-backdrop" onClick={closeSidebar} aria-label="Close sidebar" />}
+                <div className={`sidebar ${isOpen ? "active" : ""}`}>
                 <div className="sidebar-header">
                     <svg className="sidebar-logo-icon" xmlns="http://www.w3.org/2000/svg" width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                     <h1 className="sidebar-logo">Doctor Md</h1>
                 </div>
-                  <button className="close-btn" onClick={() =>setSidebaropen(false)}>
-          
+                  <button className="close-btn" onClick={closeSidebar} aria-label="Close sidebar">
+            <span aria-hidden="true">&times;</span>
             </button>
                 <div className="sidebar-profile">
                     <img src={profileData?.profileImage ? profileData?.profileImage : user} alt='profileImage'></img>
