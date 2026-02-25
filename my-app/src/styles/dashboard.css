@@ -72,7 +72,7 @@
            border-right: 1px solid #1F2937;
 
 
-           transition: left 0.3s ease, width 0.3s ease;
+           transition: left 0.3s ease, width 0.3s ease, transform 0.3s ease;
            flex-shrink: 0;
            z-index: 10002;
        }
@@ -1260,15 +1260,16 @@
     }
 
     .sidebar {
-      left: -300px;   /* hide */
+      left: 0;
+      transform: translateX(-100%);
+      visibility: hidden;
+      pointer-events: none;
   }
 
   .sidebar.active {
-    left: 0;
-  }
-
-  .sidebar.open {
-      left: 0;
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
 
   .sidebar-backdrop {
