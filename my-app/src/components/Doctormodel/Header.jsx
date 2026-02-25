@@ -5,6 +5,12 @@ import { useSelector } from 'react-redux'
 const Header = ({ onMenuClick }) => {
     const profileData = useSelector((state) => state.doctorprofile)
     console.log(profileData)
+    const handleMenuClick = () => {
+        if (typeof onMenuClick === "function") {
+            onMenuClick()
+        }
+        window.dispatchEvent(new Event("doctor-sidebar-open"))
+    }
 
     return (
         <>
@@ -13,7 +19,7 @@ const Header = ({ onMenuClick }) => {
                     <button
                         type="button"
                         className="sidebar-toggle-btn"
-                        onClick={onMenuClick}
+                        onClick={handleMenuClick}
                         aria-label="Toggle sidebar"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" width={20} height={20} viewBox="0 0 24 24" fill="none"

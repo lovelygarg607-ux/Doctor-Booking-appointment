@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./../../styles/dashboard.css"
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from "react-router-dom"
@@ -11,6 +11,7 @@ const Sidebar = ({ isOpen = false, onClose }) => {
   const Navigate=useNavigate()
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [manualOpen, setManualOpen] = useState(false)
   const [active, setactive] = useState("")
 
   const[activedropdown,setactivedropdown]=useState("")
@@ -20,10 +21,17 @@ const Sidebar = ({ isOpen = false, onClose }) => {
   }
 
   const closeSidebar = () => {
+    setManualOpen(false)
     if (typeof onClose === "function") {
       onClose()
     }
   }
+  useEffect(() => {
+    const handleManualOpen = () => setManualOpen(true)
+    window.addEventListener("doctor-sidebar-open", handleManualOpen)
+    return () => window.removeEventListener("doctor-sidebar-open", handleManualOpen)
+  }, [])
+  const sidebarVisible = isOpen || manualOpen
 
 
 
@@ -49,8 +57,8 @@ const Sidebar = ({ isOpen = false, onClose }) => {
             </button> */}
 
               <div className="main-sidebar" >
-                {isOpen && <button type="button" className="sidebar-backdrop" onClick={closeSidebar} aria-label="Close sidebar" />}
-                <div className={`sidebar ${isOpen ? "active" : ""}`}>
+                {sidebarVisible && <button type="button" className="sidebar-backdrop" onClick={closeSidebar} aria-label="Close sidebar" />}
+                <div className={`sidebar ${sidebarVisible ? "active" : ""}`}>
                 <div className="sidebar-header">
                     <svg className="sidebar-logo-icon" xmlns="http://www.w3.org/2000/svg" width={28} height={28} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
